@@ -1,0 +1,8 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+input[type='text']{
+    font-size: 15px;
+    text-align: center;
+    width: 163px;
+}

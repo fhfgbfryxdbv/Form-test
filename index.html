@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="12" content="=width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="CSS.css" >
+    
+  </head>
+  <body>
+    <form style="display: inline; margin-left: auto; margin-right: auto; border: 1px solid;">
+      <input type="checkbox" id="C1" value="1" onclick="Dis('C1', 'F1')"/>Polindrom
+      <input type="checkbox" id="C2" value="1" onclick="Dis('C2', 'F2')"/>Color
+    </form>
+
+    <form id="F1" style="display: none;background-color: gray; width: max-content; border: 1px dashed; padding: 7px 5px 5px 5px;">
+      <input id="input" type="text" placeholder="Введіть слово" style="display: block;"/>
+      <input type="button" onclick="Pol()"/>
+    </form>
+
+    <form id="F2" style="border: 2px dotted; display: none; width: 200px; background-color: brown; float: inline-end;">
+      <p style="text-align: center;">choose color</p>
+      <input id="red" type="range" min="0" max="255" value="0=230"/>
+      <p style="display: inline;"><output id="Rdisplay">Red</output></p>
+      <input id="green" type="range" min="0" max="255" value="149"/>
+      <p style="display: inline;"><output id="Gdisplay">Green</output></p>
+      <input id="blue" type="range" min="0" max="255" value="100"/>
+      <p style="display: inline;"><output id="Bdisplay">Blue</output></p>
+      <input type="reset" id="Res">
+    </form>
+    
+  </body>
+
+  
+  <script>
+    let r=230, g=149, b=100, pointer=-5;
+    let R=document.getElementById("red");
+    let G=document.getElementById("green");
+    let B=document.getElementById("blue");
+    function Pol(){
+      let C=0;
+      let Cinput = document.getElementById("input");
+      for(i=0; i<Cinput.value.length; i++){
+        if(Cinput.value[i]!=Cinput.value[Cinput.value.length-i-1]){
+          C=1
+          alert("Слово не є поліндромом")
+          break
+        }
+      }
+      if(C<1){
+        alert("Слово є поліндромом")
+      }
+    }
+    function Dis(Iid, Did){
+      let Ielem=document.getElementById(Iid);
+      let Delem=document.getElementById(Did);
+      if(Ielem.checked){
+        Delem.style.display = 'block';
+      }else{
+        Delem.style.display = 'none';
+      }
+    }
+
+    Res.onclick = function(){
+      r=230;
+      g=149;
+      b=100;
+      document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+
+    }
+    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+
+    R.addEventListener("input", (event) => {
+    r = event.target.value;
+    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+    document.getElementById("Rdisplay").value = r;
+    });
+    G.addEventListener("input", (event) => {
+    g = event.target.value;
+    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+    document.getElementById("Gdisplay").value = g;
+    });
+    B.addEventListener("input", (event) => {
+    b = event.target.value;
+    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+    document.getElementById("Bdisplay").value = b;
+    });
+  </script>
+</html>

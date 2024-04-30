@@ -29,61 +29,59 @@
       <input type="reset" id="Res">
     </form>
     
-  </body>
-
-  
-  <script>
-    let r=230, g=149, b=100, pointer=-5;
-    let R=document.getElementById("red");
-    let G=document.getElementById("green");
-    let B=document.getElementById("blue");
-    function Pol(){
-      let C=0;
-      let Cinput = document.getElementById("input");
-      for(i=0; i<Cinput.value.length; i++){
-        if(Cinput.value[i]!=Cinput.value[Cinput.value.length-i-1]){
-          C=1
-          alert("Слово не є поліндромом")
-          break
+    <script>
+      let r=230, g=149, b=100, pointer=-5;
+      let R=document.getElementById("red");
+      let G=document.getElementById("green");
+      let B=document.getElementById("blue");
+      function Pol(){
+        let C=0;
+        let Cinput = document.getElementById("input");
+        for(i=0; i<Cinput.value.length; i++){
+          if(Cinput.value[i]!=Cinput.value[Cinput.value.length-i-1]){
+            C=1
+            alert("Слово не є поліндромом")
+            break
+          }
+        }
+        if(C<1){
+          alert("Слово є поліндромом")
         }
       }
-      if(C<1){
-        alert("Слово є поліндромом")
+      function Dis(Iid, Did){
+        let Ielem=document.getElementById(Iid);
+        let Delem=document.getElementById(Did);
+        if(Ielem.checked){
+          Delem.style.display = 'block';
+        }else{
+          Delem.style.display = 'none';
+        }
       }
-    }
-    function Dis(Iid, Did){
-      let Ielem=document.getElementById(Iid);
-      let Delem=document.getElementById(Did);
-      if(Ielem.checked){
-        Delem.style.display = 'block';
-      }else{
-        Delem.style.display = 'none';
+  
+      Res.onclick = function(){
+        r=230;
+        g=149;
+        b=100;
+        document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+  
       }
-    }
-
-    Res.onclick = function(){
-      r=230;
-      g=149;
-      b=100;
       document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
-
-    }
-    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
-
-    R.addEventListener("input", (event) => {
-    r = event.target.value;
-    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
-    document.getElementById("Rdisplay").value = r;
-    });
-    G.addEventListener("input", (event) => {
-    g = event.target.value;
-    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
-    document.getElementById("Gdisplay").value = g;
-    });
-    B.addEventListener("input", (event) => {
-    b = event.target.value;
-    document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
-    document.getElementById("Bdisplay").value = b;
-    });
-  </script>
+  
+      R.addEventListener("input", (event) => {
+      r = event.target.value;
+      document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+      document.getElementById("Rdisplay").value = r;
+      });
+      G.addEventListener("input", (event) => {
+      g = event.target.value;
+      document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+      document.getElementById("Gdisplay").value = g;
+      });
+      B.addEventListener("input", (event) => {
+      b = event.target.value;
+      document.body.style.backgroundColor = `rgb(${r} ${g} ${b})`;
+      document.getElementById("Bdisplay").value = b;
+      });
+    </script>
+    </body>
 </html>
